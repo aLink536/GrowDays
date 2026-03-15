@@ -1,7 +1,7 @@
 title: Seed Calendar
 description: Personal garden seed planner
-baseurl: "/seed-cal"
-url: "https://aLink56.github.io"
+baseurl: "/GrowDays"
+url: "https://alink536.github.io"
 permalink: pretty
 exclude:
   - node_modules
