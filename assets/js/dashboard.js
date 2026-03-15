@@ -14,11 +14,7 @@
     'July','August','September','October','November','December',
   ];
 
-  const SITE_BASE = (function () {
-    const base = document.querySelector('base');
-    if (base) return base.href.replace(/\/$/, '');
-    return window.location.pathname.startsWith('/seed-cal') ? '/seed-cal' : '';
-  })();
+  const SITE_BASE = (window.SITE_BASEURL || '').replace(/\/$/, '');
 
   /**
    * Milestone display config: label, CSS variable colour name, chip background colour.
@@ -81,17 +77,34 @@
     const upcoming = [];
     const lookahead = 3;
 
+    // Keys that represent sowing actions — skip these for plants already in the ground
+    const SOW_KEYS = new Set(['sow_indoors', 'direct_sow']);
+
     plants.forEach((plant) => {
       const ms = plant.milestones || {};
+
+      // Derive the planted month (1-12) if a planted_date is recorded
+      const plantedMonth = plant.planted_date
+        ? new Date(plant.planted_date + 'T00:00:00').getMonth() + 1
+        : null;
+
       Object.entries(ms).forEach(([key, val]) => {
         if (!val) return;
         const meta = MILESTONE_META[key];
         if (!meta) return;
 
+        // If the plant is in the ground, sowing milestones are already done
+        if (plantedMonth !== null && SOW_KEYS.has(key)) return;
+
         // Check if milestone falls within current month + lookahead
         for (let offset = 0; offset < lookahead; offset++) {
           let month = ((currentMonth - 1 + offset) % 12) + 1;
           if (val === month) {
+            // Skip milestones at or before the planted month — they belong to a
+            // previous growing cycle (e.g. a biennial's year-2 flowering showing
+            // in the same month the seedling was just planted)
+            if (plantedMonth !== null && month <= plantedMonth) break;
+
             upcoming.push({
               plantName: plant.name,
               plantId:   plant.id,
@@ -100,6 +113,7 @@
               offset,
               meta,
             });
+            break;
           }
         }
       });

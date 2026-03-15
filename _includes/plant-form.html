@@ -83,8 +83,8 @@
         </div>
       </div>
 
-      <!-- Frost hardy / Active -->
-      <div class="flex gap-6">
+      <!-- Frost hardy / Active / Planted date -->
+      <div class="flex flex-wrap items-center gap-6">
         <label class="flex items-center gap-2 text-sm cursor-pointer">
           <input type="checkbox" name="frost_hardy" class="rounded" style="accent-color:var(--color-primary);" />
           <span>Frost hardy</span>
@@ -93,6 +93,10 @@
           <input type="checkbox" name="active" class="rounded" style="accent-color:var(--color-primary);" checked />
           <span>Active (show on calendar)</span>
         </label>
+        <div class="form-field" style="flex:1;min-width:10rem;">
+          <label class="form-label" for="pf-planted-date">Planted date</label>
+          <input class="form-input" type="date" id="pf-planted-date" name="planted_date" />
+        </div>
       </div>
 
       <!-- Milestones -->

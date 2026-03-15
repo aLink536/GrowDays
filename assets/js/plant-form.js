@@ -89,6 +89,7 @@
     setField('supplier', plant.supplier || '');
     setField('colour', plant.colour || '');
     setCheckbox('active', plant.active !== false);
+    setField('planted_date', plant.planted_date || '');
 
     const ms = plant.milestones || {};
     MILESTONE_FIELDS.forEach((key) => {
@@ -149,6 +150,7 @@
       supplier:           (data.get('supplier') || '').trim(),
       colour:             (data.get('colour') || '').trim(),
       active:             form.elements['active'].checked,
+      planted_date:       (data.get('planted_date') || '').trim() || null,
       milestones,
     };
 
