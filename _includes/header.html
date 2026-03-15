@@ -1,0 +1,130 @@
+<!-- header.html — sticky site header with logo, page nav links, and import/export buttons. Included on every page via default.html. -->
+<header class="border-b sticky top-0 z-40" style="background-color:var(--color-surface);border-color:var(--color-border);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-14">
+
+      <!-- Logo -->
+      <a href="{{ site.baseurl }}/" class="flex items-center gap-2 font-semibold text-lg no-underline" style="color:var(--color-primary);">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-width="2"/>
+          <path d="M11 4 Q14 8 11 11 Q8 8 11 4Z" fill="currentColor" opacity="0.6"/>
+          <path d="M11 11 Q15 13 14 17 Q10 16 11 11Z" fill="currentColor" opacity="0.8"/>
+          <path d="M11 11 Q7 13 8 17 Q12 16 11 11Z" fill="currentColor" opacity="0.5"/>
+        </svg>
+        <span>Seed Calendar</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden sm:flex items-center gap-1" aria-label="Main navigation">
+        <a href="{{ site.baseurl }}/"
+           class="px-3 py-1.5 rounded-md text-sm font-medium transition-colors"
+           style="color:var(--color-fg);"
+           data-nav-link="/">Dashboard</a>
+        <a href="{{ site.baseurl }}/calendar/"
+           class="px-3 py-1.5 rounded-md text-sm font-medium transition-colors"
+           style="color:var(--color-fg);"
+           data-nav-link="/calendar/">Calendar</a>
+        <a href="{{ site.baseurl }}/library/"
+           class="px-3 py-1.5 rounded-md text-sm font-medium transition-colors"
+           style="color:var(--color-fg);"
+           data-nav-link="/library/">Library</a>
+      </nav>
+
+      <!-- Desktop actions -->
+      <div class="hidden sm:flex items-center gap-2">
+        <input type="file" id="import-file-input" accept=".json" class="sr-only" aria-hidden="true" />
+
+        <button type="button" class="btn btn-secondary text-xs px-3 py-1.5" data-action="import-json" aria-label="Import plants from JSON file">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+          </svg>
+          Import
+        </button>
+
+        <button type="button" class="btn btn-secondary text-xs px-3 py-1.5" data-action="export-json" aria-label="Export plants to JSON file">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M8 15a.5.5 0 0 0 .5-.5V3.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 .708.708L7.5 3.707V14.5a.5.5 0 0 0 .5.5z"/>
+          </svg>
+          Export
+        </button>
+
+        <button type="button" class="btn btn-primary text-xs px-3 py-1.5" data-action="open-plant-form" aria-label="Add a new plant">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M8 1.5a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5H2a.5.5 0 0 1 0-1h5V2a.5.5 0 0 1 .5-.5z"/>
+          </svg>
+          Add Plant
+        </button>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button type="button"
+              class="sm:hidden flex items-center justify-center w-9 h-9 rounded-md transition-colors"
+              style="color:var(--color-fg);"
+              data-action="toggle-mobile-menu"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="mobile-menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-icon="hamburger">
+          <rect y="3" width="20" height="2" rx="1"/>
+          <rect y="9" width="20" height="2" rx="1"/>
+          <rect y="15" width="20" height="2" rx="1"/>
+        </svg>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-icon="close" class="hidden">
+          <path d="M4.293 4.293a1 1 0 0 1 1.414 0L10 8.586l4.293-4.293a1 1 0 1 1 1.414 1.414L11.414 10l4.293 4.293a1 1 0 0 1-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L8.586 10 4.293 5.707a1 1 0 0 1 0-1.414z"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
+
+</header>
+
+<!-- Mobile menu — fixed overlay, anchored just below the header (h-14 = 3.5rem) -->
+<div id="mobile-menu"
+     class="hidden sm:hidden fixed inset-x-0 z-30 border-b shadow-lg"
+     style="top:3.5rem;background-color:var(--color-surface);border-color:var(--color-border);">
+  <div class="px-4 py-3 flex flex-col gap-1">
+    <input type="file" id="import-file-input-mobile" accept=".json" class="sr-only" aria-hidden="true" />
+
+    <nav aria-label="Mobile navigation">
+      <a href="{{ site.baseurl }}/"
+         class="flex items-center px-3 py-2.5 rounded-md text-sm font-medium transition-colors"
+         style="color:var(--color-fg);"
+         data-nav-link="/">Dashboard</a>
+      <a href="{{ site.baseurl }}/calendar/"
+         class="flex items-center px-3 py-2.5 rounded-md text-sm font-medium transition-colors"
+         style="color:var(--color-fg);"
+         data-nav-link="/calendar/">Calendar</a>
+      <a href="{{ site.baseurl }}/library/"
+         class="flex items-center px-3 py-2.5 rounded-md text-sm font-medium transition-colors"
+         style="color:var(--color-fg);"
+         data-nav-link="/library/">Library</a>
+    </nav>
+
+    <hr style="border-color:var(--color-border);" class="my-1">
+
+    <button type="button" class="flex items-center gap-2 px-3 py-2.5 rounded-md text-sm font-medium transition-colors w-full text-left" style="color:var(--color-fg);" data-action="open-plant-form" aria-label="Add a new plant">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path d="M8 1.5a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5H2a.5.5 0 0 1 0-1h5V2a.5.5 0 0 1 .5-.5z"/>
+      </svg>
+      Add Plant
+    </button>
+
+    <button type="button" class="flex items-center gap-2 px-3 py-2.5 rounded-md text-sm font-medium transition-colors w-full text-left" style="color:var(--color-fg);" data-action="export-json" aria-label="Export plants to JSON file">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path d="M8 15a.5.5 0 0 0 .5-.5V3.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 .708.708L7.5 3.707V14.5a.5.5 0 0 0 .5.5z"/>
+      </svg>
+      Export Data
+    </button>
+
+    <button type="button" class="flex items-center gap-2 px-3 py-2.5 rounded-md text-sm font-medium transition-colors w-full text-left" style="color:var(--color-fg);" data-action="import-json" aria-label="Import plants from JSON file">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+      </svg>
+      Import Data
+    </button>
+  </div>
+</div>
+
+{% include plant-form.html %}

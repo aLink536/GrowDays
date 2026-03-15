@@ -1,0 +1,34 @@
+<!-- default.html — base Jekyll layout wrapping every page with <head>, header include, main content, and per-page script loading. -->
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{ site.description }}" />
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/compiled.css" />
+</head>
+<body class="min-h-full flex flex-col" style="background-color:var(--color-bg);color:var(--color-fg);">
+
+  {% include header.html %}
+
+  <main class="flex-1">
+    {{ content }}
+  </main>
+
+  <footer class="border-t py-4 px-6 text-center text-sm" style="border-color:var(--color-border);color:var(--color-muted);">
+    <span>Seed Calendar &mdash; personal garden planner</span>
+  </footer>
+
+  <!-- Core JS -->
+  <script src="{{ site.baseurl }}/assets/js/storage.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/plant-form.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/plant-card.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/header.js"></script>
+
+  {% if page.js_file %}
+  <script src="{{ site.baseurl }}/assets/js/{{ page.js_file }}"></script>
+  {% endif %}
+
+</body>
+</html>

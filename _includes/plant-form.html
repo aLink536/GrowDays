@@ -1,0 +1,269 @@
+<!-- plant-form.html — Add/Edit Plant modal dialog. Wired up by plant-form.js; opened from the library and plant detail pages. -->
+<dialog id="plant-form-dialog" data-component="plant-form" aria-labelledby="plant-form-title">
+  <form id="plant-form" novalidate>
+    <!-- Header -->
+    <div class="flex items-center justify-between px-6 py-4 border-b" style="border-color:var(--color-border);">
+      <h2 id="plant-form-title" class="text-lg font-semibold">Add Plant</h2>
+      <button type="button" class="btn btn-secondary px-2 py-1 text-xs" data-action="close-plant-form" aria-label="Close">&#x2715;</button>
+    </div>
+
+    <!-- Body -->
+    <div class="px-6 py-5 space-y-5 overflow-y-auto" style="max-height:70vh;">
+
+      <!-- Hidden id field -->
+      <input type="hidden" name="id" />
+
+      <!-- Name & Variety -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="form-field">
+          <label class="form-label" for="pf-name">Name <span class="text-red-500">*</span></label>
+          <input class="form-input" type="text" id="pf-name" name="name" required placeholder="e.g. Tomato" />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="pf-variety">Variety</label>
+          <input class="form-input" type="text" id="pf-variety" name="variety" placeholder="e.g. Gardener's Delight" />
+        </div>
+      </div>
+
+      <!-- Tags & Colour -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="form-field">
+          <label class="form-label" for="pf-tags">Tags <span class="text-xs font-normal" style="color:var(--color-muted);">(comma-separated)</span></label>
+          <input class="form-input" type="text" id="pf-tags" name="tags" placeholder="vegetable, fruiting" />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="pf-colour">Colour</label>
+          <input class="form-input" type="text" id="pf-colour" name="colour" placeholder="e.g. red" />
+        </div>
+      </div>
+
+      <!-- Notes -->
+      <div class="form-field">
+        <label class="form-label" for="pf-notes">Notes</label>
+        <textarea class="form-input" id="pf-notes" name="notes" rows="2" placeholder="Growing tips, observations..."></textarea>
+      </div>
+
+      <!-- Sun / Lifecycle / Supplier -->
+      <div class="grid grid-cols-3 gap-4">
+        <div class="form-field">
+          <label class="form-label" for="pf-sun">Sun</label>
+          <select class="form-input" id="pf-sun" name="sun">
+            <option value="full">Full sun</option>
+            <option value="partial">Partial shade</option>
+            <option value="shade">Shade</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="pf-lifecycle">Lifecycle</label>
+          <select class="form-input" id="pf-lifecycle" name="lifecycle">
+            <option value="annual">Annual</option>
+            <option value="biennial">Biennial</option>
+            <option value="perennial">Perennial</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="pf-supplier">Supplier</label>
+          <input class="form-input" type="text" id="pf-supplier" name="supplier" placeholder="e.g. Suttons" />
+        </div>
+      </div>
+
+      <!-- Spacing / Depth / Germination -->
+      <div class="grid grid-cols-3 gap-4">
+        <div class="form-field">
+          <label class="form-label" for="pf-spacing">Spacing (cm)</label>
+          <input class="form-input" type="number" id="pf-spacing" name="spacing_cm" min="1" placeholder="60" />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="pf-depth">Sow depth (mm)</label>
+          <input class="form-input" type="number" id="pf-depth" name="sowing_depth_mm" min="1" placeholder="5" />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="pf-germ">Days to germinate</label>
+          <input class="form-input" type="number" id="pf-germ" name="days_to_germinate" min="1" placeholder="10" />
+        </div>
+      </div>
+
+      <!-- Frost hardy / Active -->
+      <div class="flex gap-6">
+        <label class="flex items-center gap-2 text-sm cursor-pointer">
+          <input type="checkbox" name="frost_hardy" class="rounded" style="accent-color:var(--color-primary);" />
+          <span>Frost hardy</span>
+        </label>
+        <label class="flex items-center gap-2 text-sm cursor-pointer">
+          <input type="checkbox" name="active" class="rounded" style="accent-color:var(--color-primary);" checked />
+          <span>Active (show on calendar)</span>
+        </label>
+      </div>
+
+      <!-- Milestones -->
+      <fieldset class="border rounded-lg p-4" style="border-color:var(--color-border);">
+        <legend class="text-sm font-semibold px-1">Milestones <span class="font-normal text-xs" style="color:var(--color-muted);">(month number)</span></legend>
+        <div class="grid grid-cols-2 gap-3 mt-2">
+
+          <div class="form-field">
+            <label class="form-label" for="pf-ms-sow-indoors">
+              <span class="inline-block w-2 h-2 rounded-full mr-1" style="background:var(--color-sow-indoors);"></span>
+              Sow indoors
+            </label>
+            <select class="form-input" id="pf-ms-sow-indoors" name="milestone_sow_indoors">
+              <option value="0">— None —</option>
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="pf-ms-transplant">
+              <span class="inline-block w-2 h-2 rounded-full mr-1" style="background:var(--color-transplant);"></span>
+              Transplant
+            </label>
+            <select class="form-input" id="pf-ms-transplant" name="milestone_transplant">
+              <option value="0">— None —</option>
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="pf-ms-direct-sow">
+              <span class="inline-block w-2 h-2 rounded-full mr-1" style="background:var(--color-direct-sow);"></span>
+              Direct sow
+            </label>
+            <select class="form-input" id="pf-ms-direct-sow" name="milestone_direct_sow">
+              <option value="0">— None —</option>
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="pf-ms-flowering">
+              <span class="inline-block w-2 h-2 rounded-full mr-1" style="background:var(--color-flowering);"></span>
+              Flowering
+            </label>
+            <select class="form-input" id="pf-ms-flowering" name="milestone_flowering">
+              <option value="0">— None —</option>
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="pf-ms-fruiting">
+              <span class="inline-block w-2 h-2 rounded-full mr-1" style="background:var(--color-fruiting);"></span>
+              Fruiting
+            </label>
+            <select class="form-input" id="pf-ms-fruiting" name="milestone_fruiting">
+              <option value="0">— None —</option>
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="pf-ms-harvest-start">
+              <span class="inline-block w-2 h-2 rounded-full mr-1" style="background:var(--color-harvest-start);"></span>
+              Harvest start
+            </label>
+            <select class="form-input" id="pf-ms-harvest-start" name="milestone_harvest_start">
+              <option value="0">— None —</option>
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="pf-ms-harvest-end">
+              <span class="inline-block w-2 h-2 rounded-full mr-1" style="background:var(--color-harvest-end);"></span>
+              Harvest end
+            </label>
+            <select class="form-input" id="pf-ms-harvest-end" name="milestone_harvest_end">
+              <option value="0">— None —</option>
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </div>
+
+        </div>
+      </fieldset>
+
+    </div><!-- /body -->
+
+    <!-- Footer -->
+    <div class="flex justify-end gap-3 px-6 py-4 border-t" style="border-color:var(--color-border);">
+      <button type="button" class="btn btn-secondary" data-action="close-plant-form">Cancel</button>
+      <button type="submit" class="btn btn-primary">Save Plant</button>
+    </div>
+
+  </form>
+</dialog>

@@ -1,0 +1,101 @@
+---
+layout: default
+title: Plant Library
+js_file: library.js
+---
+<!-- Plant Library — lists all plants with search, filter, add, edit, and delete controls. -->
+
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-2xl font-bold">Plant Library</h1>
+    <button type="button" class="btn btn-secondary text-sm" id="import-defaults-btn">
+      Load default plants
+    </button>
+  </div>
+
+  <!-- Search -->
+  <div class="mb-6">
+    <label for="plant-search" class="sr-only">Search plants</label>
+    <div class="relative">
+      <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style="color:var(--color-muted);" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.242 1.156a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z"/>
+      </svg>
+      <input type="search"
+             id="plant-search"
+             placeholder="Search plants by name, variety, or tag..."
+             data-action="search-plants"
+             class="form-input pl-9 w-full"
+             autocomplete="off" />
+    </div>
+  </div>
+
+  <!-- Filter: show inactive -->
+  <div class="flex items-center gap-4 mb-4">
+    <label class="flex items-center gap-2 text-sm cursor-pointer">
+      <input type="checkbox" id="show-inactive" class="rounded" style="accent-color:var(--color-primary);" />
+      <span>Show inactive plants</span>
+    </label>
+    <span id="plant-count-label" class="text-sm" style="color:var(--color-muted);"></span>
+  </div>
+
+  <!-- Plant list -->
+  <div id="plant-list"
+       data-component="library"
+       class="space-y-2"
+       aria-live="polite"
+       aria-label="Plant library">
+    <!-- Populated by library.js -->
+    <p class="text-sm italic py-4 text-center" style="color:var(--color-muted);">Loading plants...</p>
+  </div>
+
+</div>
+
+<!-- Template: library list item -->
+<template id="plant-list-item-tpl">
+  <div class="flex items-center gap-3 p-3 rounded-lg border transition-all"
+       style="border-color:var(--color-border);background:var(--color-surface);"
+       data-tpl-item
+       data-plant-id="">
+
+    <!-- Active toggle -->
+    <label class="flex-shrink-0 cursor-pointer" title="Toggle active">
+      <input type="checkbox" class="sr-only" data-tpl-active-toggle />
+      <span class="flex items-center justify-center w-8 h-8 rounded-full border-2 transition-all"
+            style="border-color:var(--color-border);"
+            data-tpl-active-indicator
+            aria-hidden="true">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+          <path d="M10 3L5 8.5 2 5.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="sr-only" data-tpl-active-label>Toggle active</span>
+    </label>
+
+    <!-- Name & variety -->
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-2 flex-wrap">
+        <a class="font-medium text-sm hover:underline"
+           style="color:var(--color-primary);"
+           data-tpl-plant-link href="#">
+          <span data-tpl-name></span>
+        </a>
+        <span class="text-xs" style="color:var(--color-muted);" data-tpl-variety></span>
+      </div>
+      <div class="flex flex-wrap gap-1 mt-1" data-tpl-tags></div>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex items-center gap-2 flex-shrink-0">
+      <button type="button" class="btn btn-secondary text-xs px-2 py-1" data-tpl-edit-btn>Edit</button>
+      <button type="button" class="btn btn-danger text-xs px-2 py-1" data-tpl-delete-btn aria-label="Delete plant">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+          <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+        </svg>
+        Delete
+      </button>
+    </div>
+
+  </div>
+</template>

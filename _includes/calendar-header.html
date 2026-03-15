@@ -1,0 +1,15 @@
+<!-- calendar-header.html — sticky header row for the calendar grid showing Jan–Dec column labels; current month is highlighted by calendar.js. -->
+<div class="calendar-grid border-t border-l" style="border-color:var(--color-border);background-color:var(--color-surface);">
+  <div class="calendar-cell flex items-center px-3 py-2 font-semibold text-xs uppercase tracking-wide" style="color:var(--color-muted);">
+    Plant
+  </div>
+  {% assign months = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" | split: "," %}
+  {% for month in months %}
+    {% assign m = forloop.index %}
+    <div class="calendar-cell flex items-center justify-center py-2 font-semibold text-xs uppercase tracking-wide"
+         data-month-header="{{ m }}"
+         style="color:var(--color-muted);">
+      {{ month }}
+    </div>
+  {% endfor %}
+</div>

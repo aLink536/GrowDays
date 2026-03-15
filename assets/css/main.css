@@ -1,0 +1,151 @@
+/* main.css — Tailwind entry point. Imports design tokens, then emits base/components/utilities layers. Compiled to _site/assets/css/main.css by the build script. */
+@import "./tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Calendar grid */
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: max-content repeat(12, minmax(2.75rem, 1fr));
+    min-width: max-content;
+  }
+
+  .calendar-cell {
+    min-height: 2.5rem;
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+    transition: background-color 0.15s ease;
+  }
+
+  .calendar-cell:first-child {
+    border-left: 1px solid var(--color-border);
+    min-width: 8rem;
+  }
+
+  /* Milestone cell colouring */
+  .cell--sow-indoors  { background-color: var(--color-sow-indoors);  opacity: 0.85; }
+  .cell--transplant   { background-color: var(--color-transplant);   opacity: 0.85; }
+  .cell--direct-sow   { background-color: var(--color-direct-sow);   opacity: 0.85; }
+  .cell--flowering    { background-color: var(--color-flowering);     opacity: 0.85; }
+  .cell--fruiting     { background-color: var(--color-fruiting);      opacity: 0.85; }
+  .cell--harvest      { background-color: var(--color-harvest-start); opacity: 0.85; }
+  .cell--current-month {
+    background-color: rgba(74, 124, 89, 0.08);
+  }
+  .cell--current-month.calendar-cell {
+    border-top: 2px solid var(--color-primary);
+  }
+
+  /* Milestone chip */
+  .milestone-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  /* Plant form dialog */
+  dialog {
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 0;
+    max-width: 640px;
+    width: 95vw;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    background: var(--color-surface);
+  }
+
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+  }
+
+  /* Button variants */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background-color: #3d6b4a;
+  }
+
+  .btn-secondary {
+    background-color: var(--color-surface);
+    color: var(--color-fg);
+    border-color: var(--color-border);
+  }
+  .btn-secondary:hover {
+    background-color: var(--color-bg);
+  }
+
+  .btn-danger {
+    background-color: #fef2f2;
+    color: #dc2626;
+    border-color: #fecaca;
+  }
+  .btn-danger:hover {
+    background-color: #fee2e2;
+  }
+
+  /* Form field */
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .form-label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-fg);
+  }
+
+  .form-input {
+    border: 1px solid var(--color-border);
+    border-radius: 0.375rem;
+    padding: 0.4375rem 0.75rem;
+    font-size: 0.875rem;
+    background: var(--color-surface);
+    color: var(--color-fg);
+    width: 100%;
+  }
+
+  .form-input:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 0;
+    border-color: transparent;
+  }
+}

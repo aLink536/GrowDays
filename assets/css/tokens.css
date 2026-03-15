@@ -1,0 +1,20 @@
+/* tokens.css — CSS custom properties for the app's design system: base palette, UI surface colours, and per-milestone colours used by Tailwind utilities. */
+:root {
+  /* Base palette */
+  --color-primary:      #4a7c59;
+  --color-secondary:    #8fb573;
+  --color-bg:           #f9f6f0;
+  --color-fg:           #1a1a1a;
+  --color-surface:      #ffffff;
+  --color-border:       #e0d9cc;
+  --color-muted:        #6b7280;
+
+  /* Milestone colours */
+  --color-sow-indoors:  #7c6fcd;
+  --color-transplant:   #4a7c59;
+  --color-direct-sow:   #5a9e6f;
+  --color-flowering:    #e8a838;
+  --color-fruiting:     #d97706;
+  --color-harvest-start:#dc2626;
+  --color-harvest-end:  #991b1b;
+}

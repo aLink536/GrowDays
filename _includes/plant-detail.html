@@ -1,0 +1,79 @@
+<!-- plant-detail.html — article layout showing a plant's metadata grid and milestone timeline. Populated by plant-detail.js. -->
+<article data-component="plant-detail" data-plant-id="" class="max-w-3xl mx-auto px-4 py-8">
+
+  <!-- Back link -->
+  <a href="{{ site.baseurl }}/library/" class="inline-flex items-center gap-1 text-sm mb-6 hover:underline" style="color:var(--color-muted);">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+      <path d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+    </svg>
+    Back to Library
+  </a>
+
+  <!-- Header -->
+  <div class="flex items-start justify-between gap-4 mb-6">
+    <div>
+      <h1 class="text-2xl font-bold" data-field="name">—</h1>
+      <p class="text-base mt-0.5" style="color:var(--color-muted);" data-field="variety">—</p>
+    </div>
+    <button type="button" class="btn btn-secondary" data-action="edit-plant">Edit</button>
+  </div>
+
+  <!-- Tags -->
+  <div class="flex flex-wrap gap-1.5 mb-6" data-field="tags-container" aria-label="Tags"></div>
+
+  <!-- Info grid -->
+  <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 p-4 rounded-lg border mb-6" style="border-color:var(--color-border);background:var(--color-surface);">
+    <div>
+      <dt class="text-xs font-medium uppercase tracking-wide mb-0.5" style="color:var(--color-muted);">Sun</dt>
+      <dd class="text-sm capitalize" data-field="sun">—</dd>
+    </div>
+    <div>
+      <dt class="text-xs font-medium uppercase tracking-wide mb-0.5" style="color:var(--color-muted);">Lifecycle</dt>
+      <dd class="text-sm capitalize" data-field="lifecycle">—</dd>
+    </div>
+    <div>
+      <dt class="text-xs font-medium uppercase tracking-wide mb-0.5" style="color:var(--color-muted);">Spacing</dt>
+      <dd class="text-sm" data-field="spacing_cm">—</dd>
+    </div>
+    <div>
+      <dt class="text-xs font-medium uppercase tracking-wide mb-0.5" style="color:var(--color-muted);">Sow depth</dt>
+      <dd class="text-sm" data-field="sowing_depth_mm">—</dd>
+    </div>
+    <div>
+      <dt class="text-xs font-medium uppercase tracking-wide mb-0.5" style="color:var(--color-muted);">Days to germinate</dt>
+      <dd class="text-sm" data-field="days_to_germinate">—</dd>
+    </div>
+    <div>
+      <dt class="text-xs font-medium uppercase tracking-wide mb-0.5" style="color:var(--color-muted);">Frost hardy</dt>
+      <dd class="text-sm" data-field="frost_hardy">—</dd>
+    </div>
+    <div>
+      <dt class="text-xs font-medium uppercase tracking-wide mb-0.5" style="color:var(--color-muted);">Supplier</dt>
+      <dd class="text-sm" data-field="supplier">—</dd>
+    </div>
+    <div>
+      <dt class="text-xs font-medium uppercase tracking-wide mb-0.5" style="color:var(--color-muted);">Colour</dt>
+      <dd class="text-sm capitalize" data-field="colour">—</dd>
+    </div>
+    <div>
+      <dt class="text-xs font-medium uppercase tracking-wide mb-0.5" style="color:var(--color-muted);">Status</dt>
+      <dd class="text-sm" data-field="active">—</dd>
+    </div>
+  </div>
+
+  <!-- Notes -->
+  <div class="mb-6">
+    <h2 class="text-sm font-semibold uppercase tracking-wide mb-2" style="color:var(--color-muted);">Notes</h2>
+    <p class="text-sm leading-relaxed p-3 rounded-lg border" style="border-color:var(--color-border);background:var(--color-surface);" data-field="notes">—</p>
+  </div>
+
+  <!-- Milestones -->
+  <div>
+    <h2 class="text-sm font-semibold uppercase tracking-wide mb-3" style="color:var(--color-muted);">Milestones</h2>
+    <div id="detail-milestone-bar" class="calendar-grid border rounded-lg overflow-hidden" style="border-color:var(--color-border);">
+      <!-- Populated by plant-detail.js -->
+    </div>
+    <div class="flex flex-wrap gap-2 mt-3" id="detail-milestone-legend"></div>
+  </div>
+
+</article>

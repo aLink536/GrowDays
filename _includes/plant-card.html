@@ -1,0 +1,24 @@
+<!-- plant-card.html — one row in the calendar grid for a single plant; month cells are coloured by plant-card.js based on milestone data. -->
+<div class="calendar-grid border-l hover:bg-black/[0.02] transition-colors"
+     data-component="plant-card"
+     data-plant-id="{{ include.plant.id }}"
+     data-plant="{{ include.plant | jsonify | xml_escape }}">
+
+  <!-- Plant name cell -->
+  <div class="calendar-cell flex items-center gap-2 px-3 py-2">
+    <a href="{{ site.baseurl }}/plant/?id={{ include.plant.id }}"
+       class="text-sm font-medium truncate hover:underline"
+       style="color:var(--color-primary);">
+      {{ include.plant.name }}
+    </a>
+    {% if include.plant.variety %}
+      <span class="text-xs truncate hidden lg:inline" style="color:var(--color-muted);">{{ include.plant.variety }}</span>
+    {% endif %}
+  </div>
+
+  <!-- Month cells -->
+  {% for i in (1..12) %}
+    <div class="calendar-cell" data-month="{{ i }}" data-plant-id="{{ include.plant.id }}"></div>
+  {% endfor %}
+
+</div>

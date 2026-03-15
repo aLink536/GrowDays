@@ -1,0 +1,11 @@
+title: Seed Calendar
+description: Personal garden seed planner
+baseurl: "/seed-cal"
+url: "https://aLink56.github.io"
+permalink: pretty
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - tailwind.config.js
+  - postcss.config.js

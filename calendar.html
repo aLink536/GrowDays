@@ -1,0 +1,92 @@
+---
+layout: default
+title: Calendar
+js_file: calendar.js
+---
+<!-- Calendar — 12-month grid showing colour-coded milestone activity for all active plants. -->
+
+<div class="max-w-full px-4 sm:px-6 lg:px-8 py-6">
+
+  <div class="flex items-center justify-between mb-4">
+    <h1 class="text-2xl font-bold">Seed Calendar</h1>
+    <p class="text-sm" style="color:var(--color-muted);" id="calendar-subtitle">Showing active plants</p>
+  </div>
+
+  <!-- Calendar legend -->
+  <div class="flex flex-wrap gap-3 mb-4">
+    <div class="flex items-center gap-1.5 text-xs">
+      <span class="inline-block w-3 h-3 rounded-sm" style="background:var(--color-sow-indoors);"></span>
+      Sow indoors
+    </div>
+    <div class="flex items-center gap-1.5 text-xs">
+      <span class="inline-block w-3 h-3 rounded-sm" style="background:var(--color-direct-sow);"></span>
+      Direct sow
+    </div>
+    <div class="flex items-center gap-1.5 text-xs">
+      <span class="inline-block w-3 h-3 rounded-sm" style="background:var(--color-transplant);"></span>
+      Transplant
+    </div>
+    <div class="flex items-center gap-1.5 text-xs">
+      <span class="inline-block w-3 h-3 rounded-sm" style="background:var(--color-flowering);"></span>
+      Flowering
+    </div>
+    <div class="flex items-center gap-1.5 text-xs">
+      <span class="inline-block w-3 h-3 rounded-sm" style="background:var(--color-fruiting);"></span>
+      Fruiting
+    </div>
+    <div class="flex items-center gap-1.5 text-xs">
+      <span class="inline-block w-3 h-3 rounded-sm" style="background:var(--color-harvest-start);"></span>
+      Harvest
+    </div>
+  </div>
+
+  <!-- Calendar container -->
+  <div class="overflow-x-auto rounded-lg border" style="border-color:var(--color-border);">
+
+    {% include calendar-header.html %}
+
+    <div id="calendar-grid" data-component="calendar">
+      <!-- Populated by calendar.js using the template below -->
+      <p class="px-4 py-8 text-sm text-center" style="color:var(--color-muted);" id="calendar-empty">
+        Loading calendar...
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Template: plant row (cloned by calendar.js) -->
+<template id="plant-row-tpl">
+  <div class="calendar-grid border-l hover:bg-black/[0.02] transition-colors"
+       data-component="plant-card"
+       data-plant-id=""
+       data-plant="">
+
+    <!-- Plant name cell -->
+    <div class="calendar-cell flex items-center gap-2 px-3 py-2">
+      <a class="text-sm font-medium truncate hover:underline"
+         style="color:var(--color-primary);"
+         data-tpl-plant-link
+         href="#">
+        <span data-tpl-plant-name></span>
+      </a>
+      <span class="text-xs truncate hidden lg:inline" style="color:var(--color-muted);" data-tpl-plant-variety></span>
+    </div>
+
+    <!-- Month cells -->
+    <div class="calendar-cell" data-month="1"></div>
+    <div class="calendar-cell" data-month="2"></div>
+    <div class="calendar-cell" data-month="3"></div>
+    <div class="calendar-cell" data-month="4"></div>
+    <div class="calendar-cell" data-month="5"></div>
+    <div class="calendar-cell" data-month="6"></div>
+    <div class="calendar-cell" data-month="7"></div>
+    <div class="calendar-cell" data-month="8"></div>
+    <div class="calendar-cell" data-month="9"></div>
+    <div class="calendar-cell" data-month="10"></div>
+    <div class="calendar-cell" data-month="11"></div>
+    <div class="calendar-cell" data-month="12"></div>
+
+  </div>
+</template>
