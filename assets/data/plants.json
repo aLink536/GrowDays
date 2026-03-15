@@ -3,7 +3,10 @@
     "id": "plant-009",
     "name": "Courgette",
     "variety": "Striato di Napoli",
-    "tags": ["vegetable", "fruiting"],
+    "tags": [
+      "vegetable",
+      "fruiting"
+    ],
     "notes": "Productive medium-early variety with dark green striped fruits, excellent flavour and firm flesh. Bushy, compact habit. Can be harvested as baby courgettes, traditional size, or left to grow into marrows. Watch for slugs when young. Hungry feeders — add plenty of organic matter and water/feed regularly. Frost sensitive.",
     "sun": "full",
     "spacing_cm": 100,
@@ -14,7 +17,7 @@
     "supplier": "Wales Seed Hub (Lauren Simpson)",
     "colour": "dark green striped",
     "active": true,
-    "planted_date": null,
+    "planted_date": "2026-03-15",
     "milestones": {
       "sow_indoors": 4,
       "transplant": 6,
@@ -29,7 +32,10 @@
     "id": "plant-010",
     "name": "Lettuce",
     "variety": "Little Leprechaun",
-    "tags": ["vegetable", "salad"],
+    "tags": [
+      "vegetable",
+      "salad"
+    ],
     "notes": "Attractive cos-type lettuce with savoyed purple-brown and green leaves. Larger than its name suggests. Slow to bolt and stands well in warm conditions outdoors. Harvest whole or use as cut-and-come-again. Possible synonym of Red Leprechaun / Red Cimarron — may date to the 18th century. Space 30cm apart each way.",
     "sun": "partial",
     "spacing_cm": 30,
@@ -40,7 +46,7 @@
     "supplier": "Wales Seed Hub (Simon Powell)",
     "colour": "purple-brown and green",
     "active": true,
-    "planted_date": null,
+    "planted_date": "2026-03-15",
     "milestones": {
       "sow_indoors": 2,
       "transplant": 3,
@@ -55,7 +61,11 @@
     "id": "plant-011",
     "name": "Tomato",
     "variety": "Whippersnapper",
-    "tags": ["vegetable", "fruiting", "container"],
+    "tags": [
+      "vegetable",
+      "fruiting",
+      "container"
+    ],
     "notes": "Early maturing determinate bush tomato. Slightly pinkish fruits with a sweet/acid balance and fruity flavour. Tumbling habit — excellent for hanging baskets, pots and small spaces. Can be grown under cover or outdoors. Does not require side-shooting. Sow in seed tray with light covering of compost in warm conditions, early March. Allow 30cm between plants.",
     "sun": "full",
     "spacing_cm": 30,
@@ -66,7 +76,7 @@
     "supplier": "Wales Seed Hub (Maggie Carr)",
     "colour": "pink-red",
     "active": true,
-    "planted_date": null,
+    "planted_date": "2026-03-15",
     "milestones": {
       "sow_indoors": 2,
       "transplant": 5,
@@ -81,7 +91,11 @@
     "id": "plant-013",
     "name": "French Bean",
     "variety": "Domino",
-    "tags": ["vegetable", "legume", "fast-growing"],
+    "tags": [
+      "vegetable",
+      "legume",
+      "fast-growing"
+    ],
     "notes": "Dwarf French bean producing an abundance of stringless pods on compact plants around 50cm tall. No need for supporting structures, though bamboo or hazel supports are helpful when heavily laden. Keep picking regularly to promote more flowers and beans. Sow in succession from late spring to late summer for a longer harvest. Rich soil and warmth preferred.",
     "sun": "full",
     "spacing_cm": 15,
@@ -92,7 +106,7 @@
     "supplier": "Wales Seed Hub (Tilly Gomersall)",
     "colour": "green",
     "active": true,
-    "planted_date": null,
+    "planted_date": "2026-03-15",
     "milestones": {
       "sow_indoors": 4,
       "transplant": 5,
@@ -107,7 +121,11 @@
     "id": "plant-012",
     "name": "Kale",
     "variety": "Uncle Bert's Purple",
-    "tags": ["vegetable", "brassica", "winter"],
+    "tags": [
+      "vegetable",
+      "brassica",
+      "winter"
+    ],
     "notes": "Russian-type kale with flat, frilly leaves in blue-green with strong purple ribbing. Grows a couple of feet high and wide. Very hardy through winter; becomes large and bushy in spring before flowering. Dual crop possible — harvest young shoots like baby purple sprouting broccoli before flowers form. Leaves are sweet and nutty. Originally from Garden Organic's Heritage Seed Library. Space 75cm apart.",
     "sun": "full",
     "spacing_cm": 75,
@@ -118,7 +136,7 @@
     "supplier": "Wales Seed Hub (Carolyn Moody)",
     "colour": "blue-green with purple",
     "active": true,
-    "planted_date": null,
+    "planted_date": "2026-03-15",
     "milestones": {
       "sow_indoors": 4,
       "transplant": 6,
@@ -133,7 +151,10 @@
     "id": "plant-001",
     "name": "Tomato",
     "variety": "Gardener's Delight",
-    "tags": ["vegetable", "fruiting"],
+    "tags": [
+      "vegetable",
+      "fruiting"
+    ],
     "notes": "Indeterminate cherry tomato. Needs support canes or string. Pinch out side shoots for best yield.",
     "sun": "full",
     "spacing_cm": 60,
@@ -144,7 +165,7 @@
     "supplier": "Thompson & Morgan",
     "colour": "red",
     "active": false,
-    "planted_date": null,
+    "planted_date": "2026-03-15",
     "milestones": {
       "sow_indoors": 2,
       "transplant": 5,
@@ -159,7 +180,10 @@
     "id": "plant-002",
     "name": "Courgette",
     "variety": "Black Beauty",
-    "tags": ["vegetable", "fruiting"],
+    "tags": [
+      "vegetable",
+      "fruiting"
+    ],
     "notes": "Prolific cropper. Harvest fruits when small for best flavour. Watch for powdery mildew in late summer.",
     "sun": "full",
     "spacing_cm": 90,
@@ -185,7 +209,10 @@
     "id": "plant-003",
     "name": "Broad Bean",
     "variety": "Aquadulce Claudia",
-    "tags": ["vegetable", "legume"],
+    "tags": [
+      "vegetable",
+      "legume"
+    ],
     "notes": "Autumn-sown variety for overwintering. Very hardy. Watch for blackfly in spring — pinch out shoot tips.",
     "sun": "full",
     "spacing_cm": 20,
@@ -211,7 +238,11 @@
     "id": "plant-004",
     "name": "Sweet Pea",
     "variety": "Matucana",
-    "tags": ["flower", "climber", "cutting"],
+    "tags": [
+      "flower",
+      "climber",
+      "cutting"
+    ],
     "notes": "Highly fragrant heritage variety. Deadhead regularly to prolong flowering. Sow in autumn or late winter.",
     "sun": "full",
     "spacing_cm": 20,
@@ -237,7 +268,11 @@
     "id": "plant-005",
     "name": "Chilli",
     "variety": "Hungarian Hot Wax",
-    "tags": ["vegetable", "fruiting", "spicy"],
+    "tags": [
+      "vegetable",
+      "fruiting",
+      "spicy"
+    ],
     "notes": "Medium heat, excellent for pickling. Needs a long warm season — start early indoors. Can overwinter indoors.",
     "sun": "full",
     "spacing_cm": 45,
@@ -263,7 +298,10 @@
     "id": "plant-006",
     "name": "Basil",
     "variety": "Genovese",
-    "tags": ["herb", "culinary"],
+    "tags": [
+      "herb",
+      "culinary"
+    ],
     "notes": "Classic pesto basil. Pinch out flower heads to keep leaves coming. Protect from cold and draughts.",
     "sun": "full",
     "spacing_cm": 20,
@@ -289,7 +327,10 @@
     "id": "plant-007",
     "name": "Sunflower",
     "variety": "Russian Giant",
-    "tags": ["flower", "wildlife"],
+    "tags": [
+      "flower",
+      "wildlife"
+    ],
     "notes": "Tall statement plant, great for birds. Direct sow after last frost. Stake in exposed positions.",
     "sun": "full",
     "spacing_cm": 45,
@@ -315,7 +356,11 @@
     "id": "plant-008",
     "name": "Lettuce",
     "variety": "Little Gem",
-    "tags": ["vegetable", "salad", "fast-growing"],
+    "tags": [
+      "vegetable",
+      "salad",
+      "fast-growing"
+    ],
     "notes": "Compact cos-type lettuce. Sow successionally every 3 weeks for a continuous supply. Bolt-resistant.",
     "sun": "partial",
     "spacing_cm": 20,
