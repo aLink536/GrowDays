@@ -29,6 +29,16 @@
     harvest_start: { cls: 'cell--harvest',       label: 'Harvest'     },
   };
 
+  // All milestone CSS classes (used for clearing before re-render)
+  const ALL_MILESTONE_CLS = [...new Set(Object.values(MILESTONE_CONFIG).map(c => c.cls))];
+
+  // Filter state: set of milestone keys to hide ('harvest' covers the entire harvest range)
+  let _hidden = new Set();
+
+  function setFilter(hiddenSet) {
+    _hidden = hiddenSet instanceof Set ? hiddenSet : new Set(hiddenSet);
+  }
+
   /**
    * Initialise all plant-card elements in the given root (default: document).
    * Called by calendar.js after cloning templates, and directly on page load.
@@ -52,6 +62,15 @@
 
     const ms = plant.milestones || {};
 
+    // Clear any previously applied milestone classes and labels (supports re-render on filter change)
+    for (let m = 1; m <= 12; m++) {
+      const cell = card.querySelector('[data-month="' + m + '"]');
+      if (!cell) continue;
+      ALL_MILESTONE_CLS.forEach(cls => cell.classList.remove(cls));
+      cell.removeAttribute('title');
+      cell.removeAttribute('aria-label');
+    }
+
     // Build a map: month number -> array of milestone labels for tooltip
     const monthLabels = {};
     // Build a map: month number -> CSS class (last write wins for colour)
@@ -60,6 +79,7 @@
     // Single-month milestones (all except harvest range)
     const singleKeys = ['sow_indoors', 'direct_sow', 'transplant', 'flowering', 'fruiting'];
     singleKeys.forEach((key) => {
+      if (_hidden.has(key)) return;
       const month = ms[key];
       if (!month) return;
       const cfg = MILESTONE_CONFIG[key];
@@ -68,16 +88,22 @@
       monthClass[month] = cfg.cls;
     });
 
-    // Harvest range: fill every month from harvest_start to harvest_end
+    // Harvest range: fill every month from harvest_start to harvest_end, supporting year-wrap
     const hs = ms.harvest_start;
     const he = ms.harvest_end;
-    if (hs) {
+    if (hs && !_hidden.has('harvest')) {
       const end = he || hs;
-      for (let m = hs; m <= end; m++) {
+      const harvestMonths = hs <= end
+        ? Array.from({ length: end - hs + 1 }, (_, i) => hs + i)
+        : [
+            ...Array.from({ length: 13 - hs }, (_, i) => hs + i),
+            ...Array.from({ length: end },      (_, i) => i + 1),
+          ];
+      harvestMonths.forEach((m) => {
         if (!monthLabels[m]) monthLabels[m] = [];
         monthLabels[m].push('Harvest');
         monthClass[m] = 'cell--harvest';
-      }
+      });
     }
 
     // Apply classes and titles to month cells within this card
@@ -97,7 +123,7 @@
   }
 
   // Expose for use by calendar.js
-  window.PlantCard = { initAll, initCard };
+  window.PlantCard = { initAll, initCard, setFilter };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => initAll());

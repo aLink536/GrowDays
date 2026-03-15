@@ -88,6 +88,21 @@
     // Re-render when plant data changes
     document.addEventListener('plant-saved', render);
     document.addEventListener('storage-ready', render);
+
+    // Milestone filter toggles
+    document.querySelectorAll('[data-toggle]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        btn.classList.toggle('active');
+        const hidden = new Set(
+          Array.from(document.querySelectorAll('[data-toggle]:not(.active)'))
+            .map(function (b) { return b.dataset.toggle; })
+        );
+        if (window.PlantCard) {
+          window.PlantCard.setFilter(hidden);
+          window.PlantCard.initAll();
+        }
+      });
+    });
   }
 
   function highlightCurrentMonthHeaders(currentMonth) {

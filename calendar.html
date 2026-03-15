@@ -12,32 +12,32 @@ js_file: calendar.js
     <p class="text-sm" style="color:var(--color-muted);" id="calendar-subtitle">Showing active plants</p>
   </div>
 
-  <!-- Calendar legend -->
-  <div class="flex flex-wrap gap-3 mb-4">
-    <div class="flex items-center gap-1.5 text-xs">
-      <span class="inline-block w-3 h-3 rounded-sm" style="background:var(--color-sow-indoors);"></span>
+  <!-- Calendar legend / milestone filters -->
+  <div class="flex flex-wrap gap-2 mb-4" id="milestone-filters" aria-label="Toggle milestone types">
+    <button class="filter-toggle active" data-toggle="sow_indoors" type="button">
+      <span class="filter-toggle__swatch" style="background:var(--color-sow-indoors);"></span>
       Sow indoors
-    </div>
-    <div class="flex items-center gap-1.5 text-xs">
-      <span class="inline-block w-3 h-3 rounded-sm" style="background:var(--color-direct-sow);"></span>
+    </button>
+    <button class="filter-toggle active" data-toggle="direct_sow" type="button">
+      <span class="filter-toggle__swatch" style="background:var(--color-direct-sow);"></span>
       Direct sow
-    </div>
-    <div class="flex items-center gap-1.5 text-xs">
-      <span class="inline-block w-3 h-3 rounded-sm" style="background:var(--color-transplant);"></span>
+    </button>
+    <button class="filter-toggle active" data-toggle="transplant" type="button">
+      <span class="filter-toggle__swatch" style="background:var(--color-transplant);"></span>
       Transplant
-    </div>
-    <div class="flex items-center gap-1.5 text-xs">
-      <span class="inline-block w-3 h-3 rounded-sm" style="background:var(--color-flowering);"></span>
+    </button>
+    <button class="filter-toggle active" data-toggle="flowering" type="button">
+      <span class="filter-toggle__swatch" style="background:var(--color-flowering);"></span>
       Flowering
-    </div>
-    <div class="flex items-center gap-1.5 text-xs">
-      <span class="inline-block w-3 h-3 rounded-sm" style="background:var(--color-fruiting);"></span>
+    </button>
+    <button class="filter-toggle active" data-toggle="fruiting" type="button">
+      <span class="filter-toggle__swatch" style="background:var(--color-fruiting);"></span>
       Fruiting
-    </div>
-    <div class="flex items-center gap-1.5 text-xs">
-      <span class="inline-block w-3 h-3 rounded-sm" style="background:var(--color-harvest-start);"></span>
+    </button>
+    <button class="filter-toggle active" data-toggle="harvest" type="button">
+      <span class="filter-toggle__swatch" style="background:var(--color-harvest-start);"></span>
       Harvest
-    </div>
+    </button>
   </div>
 
   <!-- Calendar container -->
@@ -65,13 +65,13 @@ js_file: calendar.js
 
     <!-- Plant name cell -->
     <div class="calendar-cell flex items-center gap-2 px-3 py-2">
-      <a class="text-sm font-medium truncate hover:underline"
+      <a class="text-sm font-medium whitespace-nowrap hover:underline"
          style="color:var(--color-primary);"
          data-tpl-plant-link
          href="#">
         <span data-tpl-plant-name></span>
       </a>
-      <span class="text-xs truncate hidden lg:inline" style="color:var(--color-muted);" data-tpl-plant-variety></span>
+      <span class="text-xs whitespace-nowrap hidden lg:inline" style="color:var(--color-muted);" data-tpl-plant-variety></span>
     </div>
 
     <!-- Month cells -->
