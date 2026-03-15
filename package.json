@@ -2,7 +2,7 @@
   "name": "seed-cal",
   "version": "1.0.0",
   "scripts": {
-    "build:css": "tailwindcss -i ./assets/css/main.css -o ./_site/assets/css/main.css --minify",
+    "build:css": "tailwindcss -i ./assets/css/main.css -o ./assets/css/compiled.css --minify",
     "watch:css": "tailwindcss -i ./assets/css/main.css -o ./assets/css/compiled.css --watch"
   },
   "devDependencies": {

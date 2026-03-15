@@ -49,10 +49,7 @@ const StorageAPI = {
   async seedDefaults() {
     if (localStorage.getItem(this.STORAGE_KEY)) return;
     try {
-      // Determine base URL from script tags to work with GitHub Pages baseurl
-      const base = document.querySelector('base')
-        ? document.querySelector('base').href.replace(/\/$/, '')
-        : (window.location.pathname.startsWith('/seed-cal') ? '/seed-cal' : '');
+      const base = window.SITE_BASEURL || '';
       const res = await fetch(base + '/assets/data/plants.json');
       if (!res.ok) throw new Error('Failed to fetch default plants');
       const plants = await res.json();
