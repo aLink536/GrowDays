@@ -22,6 +22,7 @@
     fruiting:      { label: 'Fruiting',     colour: 'var(--color-fruiting)',     cls: 'cell--fruiting'     },
     harvest_start: { label: 'Harvest start',colour: 'var(--color-harvest-start)',cls: 'cell--harvest'      },
     harvest_end:   { label: 'Harvest end',  colour: 'var(--color-harvest-end)',  cls: 'cell--harvest'      },
+    harvest:       { label: 'Harvest',      colour: 'var(--color-harvest-start)',cls: 'cell--harvest'      },
   };
 
   const TAG_COLOURS = [
