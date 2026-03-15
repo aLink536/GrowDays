@@ -8,11 +8,7 @@
 (function () {
   'use strict';
 
-  const SITE_BASE = (function () {
-    const base = document.querySelector('base');
-    if (base) return base.href.replace(/\/$/, '');
-    return window.location.pathname.startsWith('/seed-cal') ? '/seed-cal' : '';
-  })();
+  const SITE_BASE = (window.SITE_BASEURL || '').replace(/\/$/, '');
 
   const TAG_COLOURS = [
     { bg: '#e8f5e9', fg: '#2e7d32' },
